@@ -55,7 +55,7 @@ class BananaModal {
         modalElement.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; z-index: 1000;'
 
         const container = document.createElement('div')
-        container.style.cssText = `background: ${colors.background}; border-radius: ${mobile ? '24px 24px 0 0' : '20px'}; box-shadow: 0 20px 60px ${colors.shadow}; max-width: ${mobile ? '100%' : '900px'}; width: ${mobile ? '100%' : '90%'}; max-height: ${mobile ? '90vh' : '85vh'}; display: flex; flex-direction: column; ${mobile ? 'margin-top: auto;' : ''}`
+        container.style.cssText = `background: ${colors.background}; border-radius: ${mobile ? '24px 24px 0 0' : '20px'}; box-shadow: 0 20px 60px ${colors.shadow}; max-width: ${mobile ? '100%' : '900px'}; width: ${mobile ? '100%' : '90%'}; max-height: ${mobile ? '90vh' : '85vh'}; display: flex; flex-direction: column; ${mobile ? 'margin-top: auto;' : ''}; overflow: hidden;`
         container.onclick = (e) => e.stopPropagation()
 
         const searchSection = this.createSearchSection(colors, mobile)
@@ -295,7 +295,12 @@ class BananaModal {
             pagination.style.display = 'none'
             return
         }
-        pagination.style.display = 'flex'
+        // Layout configuration
+        if (mobile) {
+            pagination.style.cssText = `padding: 12px; border-top: 1px solid ${colors.border}; display: flex; flex-direction: column; align-items: center; gap: 12px; background: ${colors.surface};`
+        } else {
+            pagination.style.cssText = `padding: 16px 24px; border-top: 1px solid ${colors.border}; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: ${colors.surface};`
+        }
 
         const createBtn = (text, disabled, onClick) => {
             const btn = document.createElement('button')
@@ -326,34 +331,63 @@ class BananaModal {
 
         const nextBtn = createBtn('下一页', this.currentPage === totalPages, () => this.changePage(1))
 
-        const starLink = document.createElement('a')
-        starLink.href = 'https://github.com/glidea/banana-prompt-quicker?tab=readme-ov-file#-%E8%B4%A1%E7%8C%AE%E6%8F%90%E7%A4%BA%E8%AF%8D'
-        starLink.target = '_blank'
-        starLink.textContent = mobile ? '⭐' : '⭐ 让更多人看到你的创意'
-        starLink.style.cssText = `padding: ${mobile ? '10px 14px' : '8px 18px'}; border: 1px solid ${colors.border}; border-radius: 12px; background: ${colors.surface}; color: ${colors.text}; text-decoration: none; font-size: ${mobile ? '14px' : '13px'}; transition: all 0.25s ease; display: flex; align-items: center; gap: 4px; margin-left: ${mobile ? '8px' : '16px'}; font-weight: 500;`
-        starLink.onmouseenter = () => {
+        // Controls Wrapper
+        const controlsWrapper = document.createElement('div')
+        controlsWrapper.style.cssText = 'display: flex; align-items: center; gap: 16px;'
+        controlsWrapper.appendChild(prevBtn)
+        controlsWrapper.appendChild(pageInfo)
+        controlsWrapper.appendChild(nextBtn)
+
+        // Social Links Container
+        const socialContainer = document.createElement('div')
+        socialContainer.style.cssText = `display: flex; align-items: center; gap: ${mobile ? '12px' : '16px'}; justify-content: ${mobile ? 'center' : 'flex-end'};`
+
+        // GitHub Link
+        const githubLink = document.createElement('a')
+        githubLink.href = 'https://github.com/glidea/banana-prompt-quicker'
+        githubLink.target = '_blank'
+        githubLink.title = 'Star on GitHub'
+        githubLink.innerHTML = `<svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>`
+        githubLink.style.cssText = `color: ${colors.textSecondary}; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: 50%; cursor: pointer;`
+
+        // Xiaohongshu Link
+        const xhsLink = document.createElement('a')
+        xhsLink.href = 'https://www.xiaohongshu.com/user/profile/5f7dc54d0000000001004afb'
+        xhsLink.target = '_blank'
+        xhsLink.title = '关注我的小红书'
+        xhsLink.innerHTML = `<svg viewBox="0 0 1024 1024" width="20" height="20" fill="currentColor"><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32z m-40 728H184V184h656v656zM312 376h400v80H312z m0 176h400v80H312z" /></svg>`
+        xhsLink.style.cssText = `color: ${colors.textSecondary}; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; padding: 8px; border-radius: 50%; cursor: pointer;`
+
+        const addHoverEffect = (link, hoverColor, bg) => {
             if (!mobile) {
-                starLink.style.background = colors.primary
-                starLink.style.color = '#fff'
-                starLink.style.borderColor = colors.primary
-                starLink.style.transform = 'scale(1.05)'
-                starLink.style.boxShadow = `0 4px 12px ${colors.shadow}`
-            }
-        }
-        starLink.onmouseleave = () => {
-            if (!mobile) {
-                starLink.style.background = colors.surface
-                starLink.style.color = colors.text
-                starLink.style.borderColor = colors.border
-                starLink.style.transform = 'scale(1)'
-                starLink.style.boxShadow = 'none'
+                link.onmouseenter = () => {
+                    link.style.color = hoverColor
+                    link.style.background = bg
+                    link.style.transform = 'scale(1.1)'
+                }
+                link.onmouseleave = () => {
+                    link.style.color = colors.textSecondary
+                    link.style.background = 'transparent'
+                    link.style.transform = 'scale(1)'
+                }
             }
         }
 
-        pagination.appendChild(prevBtn)
-        pagination.appendChild(pageInfo)
-        pagination.appendChild(nextBtn)
-        pagination.appendChild(starLink)
+        addHoverEffect(githubLink, colors.text, colors.surfaceHover)
+        addHoverEffect(xhsLink, '#FF2442', mobile ? 'transparent' : 'rgba(255, 36, 66, 0.1)')
+
+        socialContainer.appendChild(githubLink)
+        socialContainer.appendChild(xhsLink)
+
+        if (mobile) {
+            pagination.appendChild(controlsWrapper)
+            pagination.appendChild(socialContainer)
+        } else {
+            const spacer = document.createElement('div')
+            pagination.appendChild(spacer)
+            pagination.appendChild(controlsWrapper)
+            pagination.appendChild(socialContainer)
+        }
     }
 
     changePage(delta) {
@@ -433,7 +467,7 @@ class BananaModal {
         bottomRow.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-top: 4px;'
 
         const author = document.createElement('span')
-        author.style.cssText = `font-size: ${mobile ? '13px' : '12px'}; color: ${colors.textSecondary}; font-weight: 400;`
+        author.style.cssText = `font-size: ${mobile ? '13px' : '12px'}; color: ${colors.textSecondary}; font-weight: 400; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; margin-right: 8px;`
         author.textContent = prompt.author
 
         if (prompt.link) {
@@ -455,7 +489,7 @@ class BananaModal {
         const tagColor = theme === 'dark'
             ? (isEdit ? '#0a84ff' : '#30d158')
             : (isEdit ? '#007aff' : '#34c759')
-        modeTag.style.cssText = `background: ${tagBg}; color: ${tagColor}; padding: 4px 10px; border-radius: 12px; font-size: ${mobile ? '12px' : '11px'}; font-weight: 600; backdrop-filter: blur(10px);`
+        modeTag.style.cssText = `background: ${tagBg}; color: ${tagColor}; padding: 4px 10px; border-radius: 12px; font-size: ${mobile ? '12px' : '11px'}; font-weight: 600; backdrop-filter: blur(10px); flex-shrink: 0;`
         modeTag.textContent = isEdit ? '编辑' : '生图'
 
         bottomRow.appendChild(author)
