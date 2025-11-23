@@ -1,5 +1,23 @@
 [
     {
+        "title": "生成人物A-pose设计图",
+        "preview": "https://linux.do/uploads/default/original/4X/9/c/8/9c8b413ed123820810b7893d1e07e5f84e151b99.jpeg",
+        "prompt": "横图，创作如图人物的A-pose设计图（不要照搬图中的动作），米白色底。\n有种初期设计的感觉。\n有各个部位拆分。\n要表情差分，多角度表情\n物品拆分，细节特写。\n并且使用手写体文字进行标注说明，最好使用中文。\n角色：保持好角色本体的现有特征，例如脸型、发色、身材等归属于人体特征的内容\n着装、图片的构成务必按照以下要求：\n以下是对人物着装细节的提取以及图片各部分\n二、 图片各部分内容详解\n整张设计图被清晰地划分为四个主要区域：\n左侧区域：三视图展示\n中上区域：各个部位拆分\n中下区域：内着的设计拆分\n右侧区域：细节特写\n按照以下要求一步步思考：\nStep1:提取角色的人体特征\nStep2: 规划着装细节\nStep3: 思考特点要求\nStep4:进行符合图片分区内容格式的图片生成",
+        "author": "LinuxDO@TheSmallHanCat",
+        "link": "https://linux.do/t/topic/1204197",
+        "mode": "edit",
+        "category": "工作"
+    },
+    {
+        "title": "生成人物[NSFW]素体设计图",
+        "preview": "https://linux.do/uploads/default/original/4X/f/3/c/f3cc75fb0df7cf9fa7fd83d281501af487de70bf.jpeg",
+        "prompt": "[nsfw]素体的\n横图，创作如图人物的 A-pose 设计图（不要照搬图中的动作），米白色底。\n有种初期设计的感觉。\n有各个部位拆分。\n要表情差分，多角度表情\n物品拆分，细节特写。\n并且使用手写体文字进行标注说明，最好使用中文。\n角色：保持好角色本体的现有特征，例如脸型、发色、身材等归属于人体特征的内容\n绘制角色不穿衣服的素体的三视图，衣服的草案灯\n以下是对人物细节的提取以及图片各部分\n二、 图片各部分内容详解\n整张设计图被清晰地划分为四个主要区域：\n左侧区域：三视图展示角色素体，需要带头发，不带任何衣服\n中上区域：各个部位拆分，包括衣服\n中下区域：内着的设计拆分\n右侧区域：细节特写\n按照以下要求一步步思考：\nStep1: 提取角色的人体特征\nStep2: 规划着装细节\nStep3: 思考特点要求\nStep4: 进行符合图片分区内容格式的图片生成",
+        "author": "LinuxDO@TheSmallHanCat",
+        "link": "https://linux.do/t/topic/1204197",
+        "mode": "edit",
+        "category": "NSFW"
+    },
+    {
         "title": "论文转教授白板板书（中英转换）",
         "preview": "https://pbs.twimg.com/media/G6RRCifaAAAcSu6.jpg?format=jpg&name=large",
         "prompt": "将这个论文转换为中文教授白板图片，帮助我理解信息",
