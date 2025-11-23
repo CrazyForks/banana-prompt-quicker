@@ -12,6 +12,7 @@ class BananaModal {
         this.pageSize = this.isMobile() ? 8 : 12
         this.filteredPrompts = []
         this.favorites = []
+        this.keyboardHandler = this.handleKeyboard.bind(this)
     }
 
     async loadPrompts() {
@@ -124,12 +125,16 @@ class BananaModal {
         this.modal.style.display = 'flex'
         this.updateCategoryDropdown()
         this.applyFilters()
+        // 添加键盘事件监听器
+        document.addEventListener('keydown', this.keyboardHandler)
     }
 
     hide() {
         if (this.modal) {
             this.modal.style.display = 'none'
         }
+        // 移除键盘事件监听器
+        document.removeEventListener('keydown', this.keyboardHandler)
     }
 
     isMobile() {
@@ -571,6 +576,42 @@ class BananaModal {
     changePage(delta) {
         this.currentPage += delta
         this.renderCurrentPage()
+    }
+
+    handleKeyboard(event) {
+        // 检查弹窗是否显示
+        if (!this.modal || this.modal.style.display === 'none') {
+            return
+        }
+
+        // 如果当前焦点在输入框中，不触发翻页
+        const activeElement = document.activeElement
+        if (activeElement && (
+            activeElement.tagName === 'INPUT' ||
+            activeElement.tagName === 'TEXTAREA' ||
+            activeElement.isContentEditable
+        )) {
+            return
+        }
+
+        // 计算总页数
+        const totalPages = Math.ceil(this.filteredPrompts.length / this.pageSize)
+        if (totalPages <= 1) {
+            return
+        }
+
+        // 处理 Left/Right 键
+        if (event.key === 'ArrowLeft') {
+            event.preventDefault()
+            if (this.currentPage > 1) {
+                this.changePage(-1)
+            }
+        } else if (event.key === 'ArrowRight') {
+            event.preventDefault()
+            if (this.currentPage < totalPages) {
+                this.changePage(1)
+            }
+        }
     }
 
     createPromptCard(prompt, favorites) {
