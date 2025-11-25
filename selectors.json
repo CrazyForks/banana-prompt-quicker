@@ -5,6 +5,6 @@
     },
     "gemini": {
         "promptInput": "div.ql-editor[contenteditable=\"true\"]",
-        "insertButton": "button.toolbox-drawer-item-deselect-button"
+        "insertButton": "button.toolbox-drawer-item-deselect-button:has(img.img-icon)"
     }
 }
