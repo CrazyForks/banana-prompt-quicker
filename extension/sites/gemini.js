@@ -1,9 +1,6 @@
-window.BananaSites = window.BananaSites || {};
-
-class GeminiSite extends window.BananaSites.Base {
+class GeminiSite extends BaseSite {
     async findPromptInput() {
         return this.findElement('gemini', 'promptInput', 'div.ql-editor[contenteditable="true"]');
-
     }
 
     async findTargetButton() {
@@ -17,9 +14,26 @@ class GeminiSite extends window.BananaSites.Base {
 
     createButton() {
         const isMobile = window.innerWidth <= 768;
-        const btn = document.createElement('button');
-        btn.id = 'banana-btn';
-        btn.className = 'mat-mdc-button mat-mdc-button-base mat-unthemed';
+
+        const btn = window.DOM.create('button', {
+            id: 'banana-btn',
+            className: 'mat-mdc-button mat-mdc-button-base mat-unthemed',
+            title: '快捷提示',
+            innerHTML: isMobile ?
+                '<span style="font-size: 18px;">🍌</span>' :
+                '<span style="font-size: 16px;">🍌</span><span>Prompts</span>',
+            onmouseenter: (e) => {
+                e.currentTarget.style.background = this.getThemeColors().hover;
+            },
+            onmouseleave: (e) => {
+                e.currentTarget.style.background = 'transparent';
+            },
+            onclick: (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (this.modal) this.modal.show();
+            }
+        });
 
         const updateButtonTheme = () => {
             const colors = this.getThemeColors();
@@ -45,23 +59,6 @@ class GeminiSite extends window.BananaSites.Base {
         };
 
         updateButtonTheme();
-        btn.title = '快捷提示';
-        btn.innerHTML = isMobile
-            ? '<span style="font-size: 18px;">🍌</span>'
-            : '<span style="font-size: 16px;">🍌</span><span>Prompts</span>';
-
-        btn.addEventListener('mouseenter', () => {
-            btn.style.background = this.getThemeColors().hover;
-        });
-        btn.addEventListener('mouseleave', () => {
-            btn.style.background = 'transparent';
-        });
-
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            if (this.modal) this.modal.show();
-        });
 
         return btn;
     }

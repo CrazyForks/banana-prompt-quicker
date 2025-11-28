@@ -1,4 +1,4 @@
-window.BananaUtils = {
+window.Utils = {
     async compressImage(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();

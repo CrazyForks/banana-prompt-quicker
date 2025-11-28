@@ -1,10 +1,13 @@
-window.BananaSites = window.BananaSites || {};
-
-window.BananaSites.Base = class BaseSite {
+class BaseSite {
     constructor() {
         this.modal = null;
         this._buttonInserting = false;
         this._pollTimer = null;
+        this.lastFocusedElement = document.addEventListener('focusin', (e) => {
+            if (this.isEditableElement(e.target)) {
+                this.lastFocusedElement = e.target;
+            }
+        });
     }
 
     getCurrentTheme() {
@@ -50,27 +53,43 @@ window.BananaSites.Base = class BaseSite {
     }
 
     async findElement(platform, type, localSelector) {
-        let el = document.querySelector(localSelector);
+        let el = window.DOM.querySelectorShadowDom(localSelector);
         if (el) return el;
 
-        // Fallback.
+        // Fallback
+        console.log('Not found el for ' + localSelector + '. Fallback to remote selector');
         const s = await this.getRemoteSelector(platform, type);
-        return document.querySelector(s);
+        return window.DOM.querySelectorShadowDom(s);
     }
 
-    async findPromptInput() { return null; }
+    async findPromptInput() {
+        if (this.lastFocusedElement && this.isEditableElement(this.lastFocusedElement)) {
+            return this.lastFocusedElement;
+        }
+
+        const active = document.activeElement;
+        if (this.isEditableElement(active)) {
+            return active;
+        }
+        return null;
+    }
+
     async findTargetButton() { return null; }
-    createButton() { return null; }
+
     insertButton(btn, target) {
+        if (document.getElementById('banana-btn')) return true;
         target.insertAdjacentElement('afterend', btn)
     }
 
     async _insertButtonIfNotExists() {
-        if (document.getElementById('banana-btn')) return true;
+        if (window.DOM.querySelectorShadowDom('#banana-btn')) return true;
 
         try {
             const target = await this.findTargetButton();
             if (!target) return false;
+
+            // Double check: ensure button doesn't exist globally (Shadow DOM or Document)
+            if (window.DOM.querySelectorShadowDom('#banana-btn')) return true;
 
             const btn = this.createButton();
             if (!btn) return false;
@@ -88,7 +107,7 @@ window.BananaSites.Base = class BaseSite {
         if (this._buttonInserting) return;
         this._buttonInserting = true;
 
-        if (document.getElementById('banana-btn')) {
+        if (window.DOM.querySelectorShadowDom('#banana-btn')) {
             this._buttonInserting = false;
             return;
         }
@@ -118,7 +137,7 @@ window.BananaSites.Base = class BaseSite {
 
         // Handle changed.
         const observer = new MutationObserver((mutations) => {
-            if (!document.getElementById('banana-btn')) {
+            if (!window.DOM.querySelectorShadowDom('#banana-btn')) {
                 f();
             }
         });
@@ -130,6 +149,35 @@ window.BananaSites.Base = class BaseSite {
         window.addEventListener('replacestate', f);
     }
 
+    createButton() {
+        const btn = window.DOM.create('button', {
+            id: 'banana-btn',
+            className: 'mat-mdc-tooltip-trigger ms-button-borderless ms-button-icon',
+            title: '快捷提示',
+            textContent: '🍌',
+            onmouseenter: (e) => {
+                e.currentTarget.style.background = this.getThemeColors().border;
+            },
+            onmouseleave: (e) => {
+                e.currentTarget.style.background = this.getThemeColors().hover;
+            },
+            onclick: () => {
+                if (this.modal) this.modal.show();
+            }
+        });
+
+        const updateButtonTheme = () => {
+            const colors = this.getThemeColors();
+            btn.style.cssText = `width: 40px; height: 40px; border-radius: 50%; border: none; background: ${colors.hover}; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-right: 8px; transition: background-color 0.2s;`;
+        };
+
+        updateButtonTheme();
+
+        return window.DOM.create('div', {
+            className: 'button-wrapper'
+        }, [btn]);
+    }
+
     isEditableElement(el) {
         if (!el) return false;
         return el.tagName === 'TEXTAREA' ||
@@ -137,14 +185,10 @@ window.BananaSites.Base = class BaseSite {
             el.isContentEditable;
     }
 
-    handleInputMissing() {
-        console.warn('Banana: No prompt input found.');
-    }
-
     async insertPrompt(prompt) {
         const el = await this.findPromptInput();
         if (!el || !this.isEditableElement(el)) {
-            this.handleInputMissing();
+            console.warn('Banana: No prompt input found.');
             return;
         }
 

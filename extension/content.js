@@ -4,10 +4,12 @@ function init() {
     let site;
     if (hostname.includes('aistudio')) {
         site = new AIStudioSite();
+    } else if (hostname.includes('business.gemini.google')) {
+        site = new GeminiEnterpriseSite();
     } else if (hostname.includes('gemini')) {
         site = new GeminiSite();
     } else {
-        site = new UniversalSite();
+        site = new BaseSite();
     }
 
     // TODO: 解除双向引用

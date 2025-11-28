@@ -4,7 +4,7 @@ const CONFIG_CACHE_DURATION = 2 * 60 * 1000; // 2 min
 
 window.ConfigManager = {
     async get() {
-        return window.BananaFetcher.fetchWithCache(
+        return window.Fetcher.fetchWithCache(
             GITHUB_CONFIG_URL,
             CONFIG_CACHE_KEY,
             CONFIG_CACHE_DURATION

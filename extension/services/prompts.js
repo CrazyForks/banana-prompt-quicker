@@ -4,7 +4,7 @@ const PROMPTS_CACHE_DURATION = 60 * 60 * 1000; // 60 min
 
 window.PromptManager = {
     async get() {
-        return window.BananaFetcher.fetchWithCache(
+        return window.Fetcher.fetchWithCache(
             GITHUB_PROMPTS_URL,
             PROMPTS_CACHE_KEY,
             PROMPTS_CACHE_DURATION

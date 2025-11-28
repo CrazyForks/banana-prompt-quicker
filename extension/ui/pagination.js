@@ -1,6 +1,6 @@
-window.BananaUI = window.BananaUI || {};
+window.UI = window.UI || {};
 
-window.BananaUI.Pagination = class PaginationComponent {
+window.UI.Pagination = class PaginationComponent {
     constructor(options = {}) {
         this.colors = options.colors;
         this.mobile = options.mobile || false;
@@ -92,7 +92,7 @@ window.BananaUI.Pagination = class PaginationComponent {
     }
 
     render() {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const { colors, mobile } = this;
 
         // Pagination Controls
@@ -181,7 +181,7 @@ window.BananaUI.Pagination = class PaginationComponent {
     }
 
     createSocialLinks() {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const { colors, mobile } = this;
 
         const socialContainer = h('div', {
@@ -237,7 +237,7 @@ window.BananaUI.Pagination = class PaginationComponent {
     }
 
     createSponsorLink() {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const { colors, mobile } = this;
 
         const sponsorContainer = h('div', {

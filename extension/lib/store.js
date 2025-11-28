@@ -1,4 +1,4 @@
-window.BananaStore = class Store {
+class Store {
     constructor() {
         this.state = {
             prompts: [],

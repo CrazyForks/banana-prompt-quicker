@@ -1,6 +1,6 @@
-window.BananaUI = window.BananaUI || {};
+window.UI = window.UI || {};
 
-window.BananaUI.PromptForm = class PromptForm {
+window.UI.PromptForm = class PromptForm {
     constructor(options = {}) {
         this.categories = options.categories || new Set();
         this.colors = options.colors;
@@ -20,7 +20,7 @@ window.BananaUI.PromptForm = class PromptForm {
     }
 
     show(existingPrompt = null) {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const { colors, mobile } = this;
 
         // Initialize state
@@ -103,7 +103,7 @@ window.BananaUI.PromptForm = class PromptForm {
     }
 
     createInput(placeholder, isTextarea = false) {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const { colors, mobile } = this;
 
         const input = h(isTextarea ? 'textarea' : 'input', {
@@ -123,7 +123,7 @@ window.BananaUI.PromptForm = class PromptForm {
     }
 
     createImageUpload(existingPrompt) {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const { colors } = this;
 
         const imageContainer = h('div', {
@@ -229,7 +229,7 @@ window.BananaUI.PromptForm = class PromptForm {
     }
 
     createCategoryDropdown(categories) {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const { colors, mobile } = this;
 
         const categoryContainer = h('div', {
@@ -313,7 +313,7 @@ window.BananaUI.PromptForm = class PromptForm {
     }
 
     createModeSelection() {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const { colors } = this;
 
         const modeContainer = h('div', {
@@ -351,7 +351,7 @@ window.BananaUI.PromptForm = class PromptForm {
     }
 
     createButtons(existingPrompt, titleInput, promptInput, subCategoryInput) {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const { colors, mobile } = this;
 
         const btnContainer = h('div', {
@@ -391,7 +391,7 @@ window.BananaUI.PromptForm = class PromptForm {
                     try {
                         saveBtn.textContent = '处理中...';
                         saveBtn.disabled = true;
-                        previewDataUrl = await window.BananaUtils.compressImage(this.state.selectedFile);
+                        previewDataUrl = await window.Utils.compressImage(this.state.selectedFile);
                     } catch (err) {
                         console.error('图片压缩失败', err);
                         alert('图片处理失败,将使用默认图标');

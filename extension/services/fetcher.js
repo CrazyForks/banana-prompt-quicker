@@ -1,4 +1,4 @@
-window.BananaFetcher = {
+window.Fetcher = {
     async fetchWithCache(url, key, duration) {
         try {
             const timestampKey = `${key}_time`;

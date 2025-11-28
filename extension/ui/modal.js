@@ -21,7 +21,7 @@ class BananaModal {
         if (this._isInitialized) return;
 
         // Initialize Store
-        this.store = new window.BananaStore();
+        this.store = new Store();
         await this.store.init();
 
         // Subscribe to store changes
@@ -74,7 +74,7 @@ class BananaModal {
     }
 
     createModal() {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const colors = this.site.getThemeColors();
         const mobile = this.isMobile();
 
@@ -119,7 +119,7 @@ class BananaModal {
         const colors = this.site.getThemeColors();
         const mobile = this.isMobile();
 
-        this.searchComponent = new window.BananaSearch({
+        this.searchComponent = new window.UI.Search({
             colors,
             isMobile: mobile,
             categories: this.store.state.categories,
@@ -151,7 +151,7 @@ class BananaModal {
     }
 
     createContentSection() {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const mobile = this.isMobile();
 
         const scrollArea = h('div', {
@@ -173,7 +173,7 @@ class BananaModal {
         const colors = this.site.getThemeColors();
         const mobile = this.isMobile();
 
-        this.paginationComponent = new window.BananaUI.Pagination({
+        this.paginationComponent = new window.UI.Pagination({
             colors,
             mobile,
             onPageChange: () => {
@@ -184,7 +184,7 @@ class BananaModal {
         const paginationElement = this.paginationComponent.render();
 
         // Add announcement component
-        this.announcementComponent = new window.BananaUI.Announcement(colors, mobile);
+        this.announcementComponent = new window.UI.Announcement(colors, mobile);
         const announcementElement = this.announcementComponent.render();
 
         const announcementContainer = paginationElement.querySelector('#pagination-announcement');
@@ -228,7 +228,7 @@ class BananaModal {
             this.renderEmptyPlaceholder(grid);
         } else {
             pageItems.forEach(prompt => {
-                const card = window.BananaUI.Card.create(prompt, {
+                const card = window.UI.Card.create(prompt, {
                     favorites: this.store.state.favorites,
                     theme,
                     colors,
@@ -258,7 +258,7 @@ class BananaModal {
     }
 
     renderEmptyPlaceholder(grid) {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const colors = this.site.getThemeColors();
         const mobile = this.isMobile();
 
@@ -284,7 +284,7 @@ class BananaModal {
     }
 
     fillEmptyPlaceholders(grid, count) {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const mobile = this.isMobile();
         const cardMinHeight = mobile ? 240 : 260;
 
@@ -304,7 +304,7 @@ class BananaModal {
         const colors = this.site.getThemeColors();
         const mobile = this.isMobile();
 
-        this.promptForm = new window.BananaUI.PromptForm({
+        this.promptForm = new window.UI.PromptForm({
             categories: this.store.state.categories,
             colors,
             mobile,

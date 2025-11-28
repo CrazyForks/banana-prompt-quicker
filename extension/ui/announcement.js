@@ -1,6 +1,6 @@
-window.BananaUI = window.BananaUI || {};
+window.UI = window.UI || {};
 
-window.BananaUI.Announcement = class AnnouncementComponent {
+window.UI.Announcement = class AnnouncementComponent {
     constructor(colors, mobile) {
         this.colors = colors;
         this.mobile = mobile;
@@ -34,7 +34,7 @@ window.BananaUI.Announcement = class AnnouncementComponent {
     }
 
     render() {
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const containerId = 'announcement-container';
 
         const container = h('div', {
@@ -93,7 +93,7 @@ window.BananaUI.Announcement = class AnnouncementComponent {
         }
 
         const item = this.announcements[this.currentIndex];
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
 
         container.innerHTML = ''; // Clear
 

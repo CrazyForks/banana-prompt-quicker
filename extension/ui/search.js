@@ -1,7 +1,8 @@
 (function () {
-    const { h } = window.BananaDOM;
+    const { h } = window.DOM;
 
-    class SearchComponent {
+    window.UI = window.UI || {};
+    window.UI.Search = class SearchComponent {
         constructor(props) {
             this.props = props;
             this.state = {
@@ -318,6 +319,4 @@
             return this.element;
         }
     }
-
-    window.BananaSearch = SearchComponent;
 })();

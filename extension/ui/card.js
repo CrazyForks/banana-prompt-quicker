@@ -1,6 +1,6 @@
-window.BananaUI = window.BananaUI || {};
+window.UI = window.UI || {};
 
-window.BananaUI.Card = {
+window.UI.Card = {
     create(prompt, options = {}) {
         const {
             favorites = [],
@@ -13,7 +13,7 @@ window.BananaUI.Card = {
             onDelete
         } = options;
 
-        const { h } = window.BananaDOM;
+        const { h } = window.DOM;
         const promptId = `${prompt.title}-${prompt.author}`;
         const isFavorite = favorites.includes(promptId);
 

@@ -7,6 +7,10 @@
         "gemini": {
             "promptInput": "div.ql-editor[contenteditable=\"true\"]",
             "insertButton": "button.toolbox-drawer-item-deselect-button:has(img.img-icon)"
+        },
+        "gemini_enterprise": {
+            "promptInput": ".ProseMirror",
+            "insertButton": ".tools-button-container"
         }
     },
     "announcements": [

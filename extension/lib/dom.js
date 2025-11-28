@@ -1,4 +1,4 @@
-window.BananaDOM = {
+window.DOM = {
     h(tag, props = {}, children = []) {
         const el = document.createElement(tag);
 
@@ -18,6 +18,8 @@ window.BananaDOM = {
                     Object.assign(el.dataset, value);
                 } else if (key === 'innerHTML') {
                     el.innerHTML = value;
+                } else if (key === 'textContent') {
+                    el.textContent = value;
                 } else {
                     el.setAttribute(key, value);
                 }
@@ -39,5 +41,24 @@ window.BananaDOM = {
         }
 
         return el;
+    },
+
+    create(tag, props, children) {
+        return this.h(tag, props, children);
+    },
+
+    querySelectorShadowDom(selector, root = document) {
+        const el = root.querySelector(selector);
+        if (el) return el;
+
+        const allElements = root.querySelectorAll('*');
+        for (const element of allElements) {
+            if (element.shadowRoot) {
+                const found = window.DOM.querySelectorShadowDom(selector, element.shadowRoot);
+                if (found) return found;
+            }
+        }
+
+        return null;
     }
 };
