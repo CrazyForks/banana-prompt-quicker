@@ -10,6 +10,16 @@
         "sub_category": "PPT"
     },
     {
+        "title": "根据已有食材做菜",
+        "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/food.jpg",
+        "prompt": "根据现有食材(见附图)建议可以烹饪的菜肴，提供详细的分步食谱，以简单的信息图形式呈现。",
+        "author": "@AmirMushich",
+        "link": "https://x.com/AmirMushich/status/1993003026119114928",
+        "mode": "edit",
+        "category": "生活",
+        "sub_category": "美食"
+    },
+    {
         "title": "手绘食谱烹饪流程图生成",
         "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/cooking_flowchart.jpg",
         "prompt": "请创建一个温暖的手绘食谱风格（16:9）插图，标题为\"{菜名} 烹饪流程图\"。整体应呈现厨房手账风格，使用温暖的奶油色背景（如浅米黄#FFF8E7），搭配食物系配色：番茄红、胡萝卜橙、生菜绿、奶油黄等，营造温馨的家庭厨房氛围。\n\nI. 主场景：烹饪步骤流程线\n在中心位置绘制一条\"波浪形/Z字形的烹饪流程线\"，用箭头和虚线连接各个步骤。根据用户输入的{菜名}和{难度等级}，自动生成烹饪步骤：\n- \"步骤1：准备食材 {食材清单 + 预处理方法}\"\n- \"步骤2：热锅预热 {油温/火候提示}\"\n- \"步骤3：{关键烹饪动作 + 时间}\"\n- \"步骤4：{调味环节 + 配料比例}\"\n- \"最终步骤：装盘出锅 {摆盘技巧 + 享用温馨语}\"\n\nII. 周围装饰元素\n在流程线周围添加大量可爱的厨房涂鸦元素：\n- 拟人化食材角色（番茄、鸡蛋、胡萝卜等）\n- Q版厨具图标（锅铲、勺子、菜刀、调味瓶罐）\n- 烹饪提示标语牌（\"小心烫！\"、\"这步最关键！\"、\"火候要把握好哦~\"）\n- 贴纸风格短语（\"妈妈的味道\"、\"{菜名}大作战！\"、\"新手也能搞定！\"）\n- 可爱的食材/调料icon、葱姜蒜三剑客\n- 烹饪情绪表达和时间/火候提示气泡",
@@ -59,13 +69,14 @@
         "category": "学习"
     },
     {
-        "title": "论文转教授白板板书（中英转换）",
-        "preview": "https://pbs.twimg.com/media/G6RRCifaAAAcSu6.jpg?format=jpg&name=large",
-        "prompt": "将这个论文转换为中文教授白板图片，帮助我理解信息",
-        "author": "@op7418",
-        "link": "https://x.com/op7418/status/1991806419948253508",
+        "title": "思维导图",
+        "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/mindmap.jpg",
+        "prompt": "将这段文字转化为一张从中心向外扩展的思维导图。\n关键点：\n- 将主旨放在中心\n- 将相关元素排列为分支节点\n- 使用颜色编码区分不同类别\n- 添加简单图标\n- 采用有机布局\n\n让它感觉像我的思绪正在被整理。",
+        "author": "@chatgpt_kazlily",
+        "link": "https://x.com/chatgpt_kazlily/status/1992125113337274857",
         "mode": "generate",
-        "category": "学习"
+        "category": "学习",
+        "sub_category": "总结"
     },
     {
         "title": "文章排版成精美杂志",
@@ -106,15 +117,6 @@
         "category": "学习"
     },
     {
-        "title": "概念可视化/知识地图",
-        "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/concept_visualization.png",
-        "prompt": "创建一个解释[光合作用]的教育信息图。\n视觉元素：展示关键组成部分：太阳、一株绿色植物、水（H2O）进入根部、二氧化碳（CO2）进入叶片，以及氧气（O2）被释放。\n风格：简洁、扁平化的矢量插图，适合高中科学教科书。使用箭头表示能量和物质的流动。\n标签：用简体中文清晰地标注每个元素。",
-        "author": "Wechat@01Founder",
-        "link": "https://mp.weixin.qq.com/s/lrYNbs4rGs3KOqewoZ6aNQ",
-        "mode": "generate",
-        "category": "学习"
-    },
-    {
         "title": "商务照",
         "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/business_portrait.jpg",
         "prompt": "保持上传图片中人物的面部特征完全一致。\n为他们穿上一套专业的海军蓝商务西装和白衬衫，类似于参考图片。\n背景：将主体置于一个干净、纯色的深灰色影棚摄影背景前。背景应有微妙的渐变，主体后面稍亮，边缘处较暗（暗角效果）。不应有其他物体。\n摄影风格：使用索尼A7III相机和85mm f/1.4镜头拍摄，营造出优美的人像压缩效果。\n灯光：使用经典的三点式布光。主光应在脸上形成柔和、轮廓分明的阴影。一个微妙的轮廓光应将主体的肩膀和头发与深色背景分离开来。\n关键细节：渲染出带有可见毛孔的自然皮肤纹理，而不是过度磨皮的效果。为眼睛添加自然的眼神光。西装的面料应显示出微妙的羊毛质感。\n最终图像应为一张超逼真的8k专业头像照。",
@@ -130,7 +132,8 @@
         "author": "@Arminn_Ai",
         "link": "https://x.com/Arminn_Ai/status/1988968257949180131",
         "mode": "edit",
-        "category": "生活"
+        "category": "生活",
+        "sub_category": "滤镜"
     },
     {
         "title": "'自己画自己'的自画像",
@@ -139,7 +142,8 @@
         "author": "@ZaraIrahh",
         "link": "https://x.com/ZaraIrahh/status/1988547753270550992",
         "mode": "edit",
-        "category": "生活"
+        "category": "生活",
+        "sub_category": "想象"
     },
     {
         "title": "胶片感写真",
@@ -148,7 +152,18 @@
         "author": "Wechat@01Founder",
         "link": "https://mp.weixin.qq.com/s/lrYNbs4rGs3KOqewoZ6aNQ",
         "mode": "edit",
-        "category": "生活"
+        "category": "生活",
+        "sub_category": "滤镜"
+    },
+    {
+        "title": "论文转教授白板板书（中英转换）",
+        "preview": "https://pbs.twimg.com/media/G6RRCifaAAAcSu6.jpg?format=jpg&name=large",
+        "prompt": "将这个论文转换为中文教授白板图片，帮助我理解信息",
+        "author": "@op7418",
+        "link": "https://x.com/op7418/status/1991806419948253508",
+        "mode": "generate",
+        "category": "学习",
+        "sub_category": "总结"
     },
     {
         "title": "文章转漫画风格总结图",
@@ -157,7 +172,8 @@
         "author": "@LufzzLiz",
         "link": "https://x.com/LufzzLiz/status/1991534738599997654",
         "mode": "generate",
-        "category": "学习"
+        "category": "学习",
+        "sub_category": "总结"
     },
     {
         "title": "与动漫人物的鱼眼自拍",
@@ -167,6 +183,15 @@
         "link": "https://x.com/MehdiSharifi/status/1991559962334482772",
         "mode": "edit",
         "category": "生活"
+    },
+    {
+        "title": "概念可视化/知识地图",
+        "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/concept_visualization.png",
+        "prompt": "创建一个解释[光合作用]的教育信息图。\n视觉元素：展示关键组成部分：太阳、一株绿色植物、水（H2O）进入根部、二氧化碳（CO2）进入叶片，以及氧气（O2）被释放。\n风格：简洁、扁平化的矢量插图，适合高中科学教科书。使用箭头表示能量和物质的流动。\n标签：用简体中文清晰地标注每个元素。",
+        "author": "Wechat@01Founder",
+        "link": "https://mp.weixin.qq.com/s/lrYNbs4rGs3KOqewoZ6aNQ",
+        "mode": "generate",
+        "category": "学习"
     },
     {
         "title": "提高分辨率",
