@@ -1,5 +1,18 @@
 [
     {
+        "title": "苹果风格海报",
+        "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/apple.png",
+        "reference_image_urls": [
+            "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/apple_ref1.jpg"
+        ],
+        "prompt": "充分参考图片的设计风格，配色等，为如下内容生成苹果风格的海报：\n\nBanana Prompt Quicker v1.6.0 1月6号震撼来袭\n全新参考图功能，去他丫的‘反推’",
+        "author": "Official",
+        "mode": "generate",
+        "category": "工作",
+        "sub_category": "海报",
+        "created": "2026-01-06T14:40:05+08:00"
+    },
+    {
         "title": "贴吧老哥疯狂吐槽批注",
         "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/reddit_style_handwrite_annotation.jpg",
         "prompt": "生成图片，把它打印出来，然后用红墨水疯狂地加上手写中文批注、涂鸦、乱画，如果你想的话，检索这个账户内容，涂鸦的内容主要为吐槽他，用贴吧老哥的口语疯狂吐槽。还可以加点小剪贴画。",
@@ -166,6 +179,18 @@
         "mode": "edit",
         "category": "生活",
         "sub_category": "想象"
+    },
+    {
+        "title": "阿凡达合照",
+        "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/afadan.png",
+        "reference_image_urls": [
+            "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/afadan_ref1.jpg"
+        ],
+        "prompt": "画一张与图1角色在电影院的合照。并排坐在红色影院座椅上，画面构图紧凑，二位主体靠得很近，头部靠在一起，面带自然微笑，眼神直视镜头。注意保留参考人物的特征，不要换脸，人物脸部不能有任何改变！！！",
+        "author": "Official",
+        "mode": "edit",
+        "category": "有趣",
+        "created": "2026-01-06T14:40:05+08:00"
     },
     {
         "title": "胶片感写真",

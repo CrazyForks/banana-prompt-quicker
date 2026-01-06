@@ -27,9 +27,8 @@
     },
     "announcements": [
         {
-            "content": "最近更新",
-            "link": "https://www.xiaohongshu.com/discovery/item/6947f4a3000000000d03bf18?source=webshare&xhsshare=pc_web&xsec_token=ABmheuM5WE_1KvrEnpXlEXl1A4Ceo_PQLO2fzb0L7o3zY=&xsec_source=pc_share",
-            "priority": 5
+            "content": "在找 AI 方面的机会，感兴趣可联系我",
+            "priority": 2
         },
         {
             "content": "Gemini 官网审查过于严格，部分提示词生成失败，请尝试其他渠道，如 Gemini Enterprise"
