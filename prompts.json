@@ -13,6 +13,19 @@
         "created": "2026-01-06T14:40:05+08:00"
     },
     {
+        "title": "疯狂动物城海报",
+        "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/dongwucheng.png",
+        "reference_image_urls": [
+            "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/dongwucheng_ref1.png"
+        ],
+        "prompt": "加载并使用 Nano Banana Pro 工具作画，而不是分析或给提示词\n---\n\n充分参考图片画风和人物形象，为如下内容画一幅宣传海报图片（16：9 竖屏风格）\n\nBanana Prompt Quicker v1.6 更新：提示词支持添加参考图\n看到心动的 PPT 风格 → 上传参考图即可复刻\n发现惊艳的滤镜效果 → 一键给照片加同款\n从此告别绞尽脑汁写 Prompt 的日子\n🔗 Chrome Web Store 搜索安装  ",
+        "author": "Official",
+        "mode": "generate",
+        "category": "工作",
+        "sub_category": "海报",
+        "created": "2026-01-09T10:40:05+08:00"
+    },
+    {
         "title": "贴吧老哥疯狂吐槽批注",
         "preview": "https://cdn.jsdelivr.net/gh/glidea/banana-prompt-quicker@main/images/reddit_style_handwrite_annotation.jpg",
         "prompt": "生成图片，把它打印出来，然后用红墨水疯狂地加上手写中文批注、涂鸦、乱画，如果你想的话，检索这个账户内容，涂鸦的内容主要为吐槽他，用贴吧老哥的口语疯狂吐槽。还可以加点小剪贴画。",
